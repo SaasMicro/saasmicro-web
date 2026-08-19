@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SaaSMicro.lab — Specialized Web Apps</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between"
+  >
+    <!-- Header -->
+    <header
+      class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-50"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
+      >
+        <div class="flex items-center space-x-2">
+          <span class="text-2xl font-black tracking-wider text-indigo-500"
+            >SaaSMicro<span class="text-slate-400">.lab</span></span
+          >
+        </div>
+        <nav class="space-x-6 text-sm font-medium text-slate-400">
+          <a href="#products" class="hover:text-indigo-400 transition"
+            >Products</a
+          >
+          <a href="#about" class="hover:text-indigo-400 transition">About</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+      <!-- Hero Section -->
+      <section class="text-center space-y-6 max-w-3xl mx-auto pt-8">
+        <span
+          class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/80 border border-indigo-800 rounded-full"
+          >Enterprise Logic • Micro Agility</span
+        >
+        <h1
+          class="text-4xl md:text-6xl font-extrabold text-white tracking-tight"
+        >
+          Specialized Web Apps Built for Specific Problems
+        </h1>
+        <p class="text-lg text-slate-400">
+          Focused, lightweight web applications designed to deliver maximum
+          efficiency without unnecessary corporate bloat.
+        </p>
+        <div class="pt-4">
+          <a
+            href="#products"
+            class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg shadow-indigo-600/30 transition"
+            >Explore Applications</a
+          >
+        </div>
+      </section>
+
+      <!-- Product Portfolio -->
+      <section id="products" class="space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-2xl font-bold text-white">Product Portfolio</h2>
+          <p class="text-slate-400 text-sm">
+            Active micro-SaaS projects and upcoming applications.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- EV Charge Tracker (Free) -->
+          <div
+            class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition"
+          >
+            <div class="space-y-4">
+              <div class="flex justify-between items-start">
+                <h3 class="text-xl font-bold text-white">EV Charge Tracker</h3>
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-950 border border-emerald-800 rounded-full"
+                  >LIVE & FREE</span
+                >
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                A dedicated web app for tracking electric vehicle charging
+                sessions, estimating battery State of Health (SOH), and
+                calculating home charging costs.
+              </p>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
+              >
+                <span class="bg-slate-900 px-2 py-1 rounded">#PHP</span>
+                <span class="bg-slate-900 px-2 py-1 rounded">#MySQL</span>
+                <span class="bg-slate-900 px-2 py-1 rounded">#OAuth2</span>
+              </div>
+            </div>
+            <div class="pt-6">
+              <a
+                href="https://ev-charge-tracker.free.je"
+                target="_blank"
+                class="block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-lg transition text-sm"
+                >Try Free Version →</a
+              >
+            </div>
+          </div>
+
+          <!-- EV Charge Tracker (Premium) -->
+          <div
+            class="bg-slate-800/30 border border-slate-800 rounded-xl p-6 flex flex-col justify-between opacity-80 hover:opacity-100 transition"
+          >
+            <div class="space-y-4">
+              <div class="flex justify-between items-start">
+                <h3 class="text-xl font-bold text-white">
+                  EV Charge Tracker Pro
+                </h3>
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-amber-400 bg-amber-950 border border-amber-800 rounded-full"
+                  >COMING SOON</span
+                >
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Advanced analytics, automated cost reporting, multi-vehicle
+                management, and extended history logs for power EV owners.
+              </p>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
+              >
+                <span class="bg-slate-900 px-2 py-1 rounded">#Analytics</span>
+                <span class="bg-slate-900 px-2 py-1 rounded">#ProFeatures</span>
+              </div>
+            </div>
+            <div class="pt-6">
+              <button
+                disabled
+                class="w-full bg-slate-800 text-slate-500 font-medium py-2.5 rounded-lg cursor-not-allowed text-sm"
+              >
+                In Development
+              </button>
+            </div>
+          </div>
+
+          <!-- Swimming Tracker -->
+          <div
+            class="bg-slate-800/30 border border-slate-800 rounded-xl p-6 flex flex-col justify-between md:col-span-2 opacity-80 hover:opacity-100 transition"
+          >
+            <div class="space-y-4">
+              <div class="flex justify-between items-start">
+                <h3 class="text-xl font-bold text-white">
+                  Swimming Performance Tracker
+                </h3>
+                <span
+                  class="px-2.5 py-1 text-xs font-semibold text-blue-400 bg-blue-950 border border-blue-800 rounded-full"
+                  >COMING SOON</span
+                >
+              </div>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                A specialized data visualization tool designed to log, filter,
+                and analyze swimming race performance results by stroke,
+                distance, and historical trends.
+              </p>
+              <div
+                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
+              >
+                <span class="bg-slate-900 px-2 py-1 rounded">#PHP</span>
+                <span class="bg-slate-900 px-2 py-1 rounded">#DataViz</span>
+                <span class="bg-slate-900 px-2 py-1 rounded">#Sports</span>
+              </div>
+            </div>
+            <div class="pt-4">
+              <span class="text-xs text-slate-500 font-mono"
+                >Status: Initial prototype in testing.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section
+        id="about"
+        class="bg-slate-950 border border-slate-800 rounded-2xl p-8 space-y-6"
+      >
+        <h2 class="text-2xl font-bold text-white">
+          From Enterprise Architecture to Precision Micro-SaaS
+        </h2>
+        <div
+          class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base"
+        >
+          <p>
+            After years of architecting and maintaining backend systems in
+            corporate environments, I founded <strong>SaaSMicro.lab</strong> to
+            build focused, goal-oriented web applications.
+          </p>
+          <p>
+            Enterprise software often suffers from feature bloat and unnecessary
+            overhead. My methodology combines battle-tested architecture
+            experience — specializing in
+            <strong>PHP, MySQL, MS SQL, C#</strong>, and modern APIs — with the
+            speed and simplicity of independent micro-SaaS engineering.
+          </p>
+        </div>
+        <div
+          class="pt-2 border-t border-slate-900 flex flex-wrap gap-4 text-xs font-mono text-slate-400"
+        >
+          <span>Tech Stack Focus: PHP • MySQL • MS SQL • C# • REST APIs</span>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="border-t border-slate-800 py-6 text-center text-xs text-slate-500"
+    >
+      <p>&copy; SaaSMicro.lab — All rights reserved.</p>
+    </footer>
+  </body>
+</html>
