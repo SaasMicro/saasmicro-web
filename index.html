@@ -1,213 +1,499 @@
 <!doctype html>
-<html lang="en">
+<html lang="hu" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SaaSMicro.lab — Specialized Web Apps</title>
+    <title data-i18n-title="meta_title">SaaSMicro.lab — Egyedi webalkalmazások & SaaS megoldások</title>
+    <!-- Open Graph / Facebook Megosztási Meta Tagek -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://saasmicro-lab.eu/" />
+    <meta property="og:title" content="SaaSMicro.lab — Egyedi webalkalmazások & SaaS megoldások" />
+    <meta property="og:description" content="Egyéni vállalkozóként vállalom egyedi webalkalmazások, belső nyilvántartó rendszerek fejlesztését, valamint meglévő rendszerek karbantartását." />
+    <meta property="og:image" content="https://saasmicro-lab.eu/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body
-    class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between"
+    class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white"
   >
     <!-- Header -->
     <header
-      class="border-b border-slate-800 bg-slate-950/50 backdrop-blur sticky top-0 z-50"
+      class="border-b border-slate-800 bg-slate-950/70 backdrop-blur-md sticky top-0 z-50"
     >
       <div
         class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center"
       >
-        <div class="flex items-center space-x-2">
-          <span class="text-2xl font-black tracking-wider text-indigo-500"
-            >SaaSMicro<span class="text-slate-400">.lab</span></span
-          >
+        <div class="flex items-center space-x-3">
+          <img 
+            src="saasmicro.lab_logo_small.png" 
+            alt="SaaSMicro.lab Icon" 
+            class="h-8 w-auto object-contain" 
+          />
+          <span class="text-2xl font-black tracking-wider text-indigo-500">
+           &lt;SaaSMicro<span class="text-slate-400">.lab</span>&gt;
+          </span>
         </div>
-        <nav class="space-x-6 text-sm font-medium text-slate-400">
-          <a href="#products" class="hover:text-indigo-400 transition"
-            >Products</a
+
+        <div class="flex items-center space-x-6">
+          <nav class="hidden md:flex space-x-6 text-sm font-medium text-slate-400">
+            <a href="#services" class="hover:text-indigo-400 transition flex items-center gap-1.5"><i data-lucide="code" class="w-4 h-4"></i> <span data-i18n="nav_services">Szolgáltatások</span></a>
+            <a href="#products" class="hover:text-indigo-400 transition flex items-center gap-1.5"><i data-lucide="layout-grid" class="w-4 h-4"></i> <span data-i18n="nav_products">Termékek</span></a>
+            <a href="#about" class="hover:text-indigo-400 transition flex items-center gap-1.5"><i data-lucide="user" class="w-4 h-4"></i> <span data-i18n="nav_about">Rólam</span></a>
+            <a href="#connect" class="hover:text-indigo-400 transition flex items-center gap-1.5"><i data-lucide="share-2" class="w-4 h-4"></i> <span data-i18n="nav_connect">Kapcsolat</span></a>
+            <a href="#impressum" class="hover:text-indigo-400 transition flex items-center gap-1.5"><i data-lucide="file-text" class="w-4 h-4"></i> <span data-i18n="nav_impressum">Impresszum</span></a>
+          </nav>
+
+          <!-- Nyelvváltó Gomb -->
+          <button 
+            id="langToggle" 
+            onclick="toggleLanguage()" 
+            class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-indigo-300 px-3 py-1.5 rounded-lg text-xs font-semibold border border-slate-700 transition shadow-sm"
+            title="Nyelv váltása / Switch Language"
           >
-          <a href="#about" class="hover:text-indigo-400 transition">About</a>
-        </nav>
+            <i data-lucide="globe" class="w-3.5 h-3.5"></i>
+            <span id="langLabel">EN</span>
+          </button>
+        </div>
       </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12 space-y-20">
+    <main class="max-w-6xl mx-auto px-6 py-12 space-y-24">
       <!-- Hero Section -->
-      <section class="text-center space-y-6 max-w-3xl mx-auto pt-8">
-        <span
-          class="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/80 border border-indigo-800 rounded-full"
-          >Enterprise Logic • Micro Agility</span
-        >
+      <section class="text-center space-y-6 max-w-4xl mx-auto pt-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-400 bg-indigo-950/80 border border-indigo-800/80 rounded-full shadow-inner">
+          <i data-lucide="zap" class="w-3.5 h-3.5"></i> <span data-i18n="hero_badge">Egyéni Vállalkozó & Webfejlesztés</span>
+        </div>
         <h1
-          class="text-4xl md:text-6xl font-extrabold text-white tracking-tight"
+          class="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight"
+          data-i18n="hero_title"
         >
-          Specialized Web Apps Built for Specific Problems
+          Üdvözlöm! Egyedi webalkalmazások és rendszerek fejlesztése
         </h1>
-        <p class="text-lg text-slate-400">
-          Focused, lightweight web applications designed to deliver maximum
-          efficiency without unnecessary corporate bloat.
+        <p class="text-slate-300 leading-relaxed text-base md:text-lg text-left bg-slate-950/50 p-6 md:p-8 rounded-2xl border border-slate-800/80 shadow-xl" data-i18n="hero_desc">
+          Webfejlesztőként és egyéni vállalkozóként vállalom egyedi webalkalmazások, belső nyilvántartó/kezelő rendszerek fejlesztését, valamint meglévő rendszerek technikai karbantartását és optimalizálását. Számlaképesen, megbízhatóan, rugalmas határidőkkel dolgozom. Keressen bizalommal, ha kódolási, fejlesztési vagy karbantartási feladatra keres partnert!
         </p>
-        <div class="pt-4">
+        <div class="pt-4 flex flex-wrap justify-center gap-4">
+          <a
+            href="#services"
+            class="inline-flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5"
+          >
+            <span data-i18n="btn_services">Szakterületeim</span> <i data-lucide="arrow-down" class="w-4 h-4"></i>
+          </a>
           <a
             href="#products"
-            class="inline-block bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg shadow-indigo-600/30 transition"
-            >Explore Applications</a
+            class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-6 py-3 rounded-xl border border-slate-700 transition"
           >
+            <span data-i18n="btn_products">SaaS Termékek</span> <i data-lucide="box" class="w-4 h-4 text-indigo-400"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- Services & Tech Stack Section -->
+      <section id="services" class="space-y-8">
+        <div class="border-b border-slate-800 pb-4">
+          <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="cpu" class="w-6 h-6 text-indigo-500"></i> <span data-i18n="services_heading">Főbb szakterületek és szolgáltatások</span>
+          </h2>
+          <p class="text-slate-400 text-sm mt-1" data-i18n="services_subheading">
+            Modern technológiák és megbízható háttértámogatás vállalkozásoknak.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Backend -->
+          <div class="bg-slate-800/40 border border-slate-700/60 rounded-2xl p-6 space-y-3 hover:border-indigo-500/60 transition shadow-xl">
+            <div class="bg-indigo-600/10 p-3 rounded-xl border border-indigo-500/20 text-indigo-400 w-fit">
+              <i data-lucide="server" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white" data-i18n="card_backend_title">Backend & API</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="card_backend_desc">
+              PHP, REST API integrációk, OAuth 2.0 autentikáció, biztonságos adatkezelés és üzleti logika implementációja.
+            </p>
+          </div>
+
+          <!-- Databases -->
+          <div class="bg-slate-800/40 border border-slate-700/60 rounded-2xl p-6 space-y-3 hover:border-indigo-500/60 transition shadow-xl">
+            <div class="bg-indigo-600/10 p-3 rounded-xl border border-indigo-500/20 text-indigo-400 w-fit">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white" data-i18n="card_db_title">Adatbázisok</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="card_db_desc">
+              MySQL, MS SQL: komplex lekérdezések írása, adatbázis-optimalizálás, adatmigráció és teljesítményhangolás.
+            </p>
+          </div>
+
+          <!-- Frontend & CMS -->
+          <div class="bg-slate-800/40 border border-slate-700/60 rounded-2xl p-6 space-y-3 hover:border-indigo-500/60 transition shadow-xl">
+            <div class="bg-indigo-600/10 p-3 rounded-xl border border-indigo-500/20 text-indigo-400 w-fit">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white" data-i18n="card_frontend_title">Frontend & WordPress</h3>
+            <p class="text-slate-300 text-sm leading-relaxed" data-i18n="card_frontend_desc">
+              HTML5, CSS3, JavaScript, Bootstrap, jQuery, Chart.js, DataTables, valamint WordPress weboldalak készítése és egyedi fejlesztése.
+            </p>
+          </div>
+        </div>
+
+        <!-- Miben tudok segíteni? (Detailed List) -->
+        <div class="bg-slate-950 border border-slate-800 rounded-3xl p-8 space-y-6 shadow-xl">
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-indigo-500"></i> <span data-i18n="help_heading">Miben tudok segíteni?</span>
+          </h3>
+          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+              <span data-i18n="help_item_1">Egyedi webes alkalmazások és SaaS megoldások tervezése és fejlesztése.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+              <span data-i18n="help_item_2">Meglévő weboldalak és rendszerek karbantartása, hibajavítása és frissítése.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+              <span data-i18n="help_item_3">Harmadik féltől származó API-k (fizetési kapuk, számlázók, Google API-k) integrálása.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-indigo-400 mt-0.5 shrink-0"></i>
+              <span data-i18n="help_item_4">Adatbázis-lekérdezések gyorsítása, hibaelhárítás és egyedi riportok készítése.</span>
+            </li>
+          </ul>
         </div>
       </section>
 
       <!-- Product Portfolio -->
       <section id="products" class="space-y-8">
-        <div class="border-b border-slate-800 pb-4">
-          <h2 class="text-2xl font-bold text-white">Product Portfolio</h2>
-          <p class="text-slate-400 text-sm">
-            Active micro-SaaS projects and upcoming applications.
-          </p>
+        <div class="border-b border-slate-800 pb-4 flex justify-between items-end">
+          <div>
+            <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+              <i data-lucide="box" class="w-6 h-6 text-indigo-500"></i> <span data-i18n="products_heading">Saját Micro-SaaS Termékek</span>
+            </h2>
+            <p class="text-slate-400 text-sm mt-1" data-i18n="products_subheading">
+              Aktív saját fejlesztésű webes alkalmazások és eszközök.
+            </p>
+          </div>
+          <span class="text-xs font-mono text-slate-500 hidden sm:inline" data-i18n="products_count">2 Élő Alkalmazás</span>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- EV Charge Tracker (Free) -->
+
+          <!-- SwimTracker SaaS -->
           <div
-            class="bg-slate-800/50 border border-slate-700/60 rounded-xl p-6 flex flex-col justify-between hover:border-indigo-500/50 transition"
+            class="group bg-slate-800/40 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/60 hover:bg-slate-800/60 transition duration-300 shadow-xl"
           >
             <div class="space-y-4">
               <div class="flex justify-between items-start">
-                <h3 class="text-xl font-bold text-white">EV Charge Tracker</h3>
+                <div class="flex items-center gap-3">
+                  <div class="bg-indigo-600/10 p-3 rounded-xl border border-indigo-500/20 text-indigo-400 group-hover:scale-110 transition">
+                    <i data-lucide="activity" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition">SwimTracker SaaS</h3>
+                    <p class="text-xs text-indigo-400 font-medium" data-i18n="swim_subtitle">Úszás Elemző & Teljesítménykövető</p>
+                  </div>
+                </div>
                 <span
-                  class="px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-950 border border-emerald-800 rounded-full"
-                  >LIVE & FREE</span
+                  class="px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 rounded-full flex items-center gap-1 shadow-sm"
                 >
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> <span data-i18n="badge_live">ÉLŐ & INGYENES</span>
+                </span>
               </div>
-              <p class="text-slate-300 text-sm leading-relaxed">
-                A dedicated web app for tracking electric vehicle charging
-                sessions, estimating battery State of Health (SOH), and
-                calculating home charging costs.
+              <p class="text-slate-300 text-sm leading-relaxed" data-i18n="swim_desc">
+                Úszó fejlődésének és versenyeredményeinek nyomon követése. Részidők rögzítése, egyéni csúcsok, FINA pontok számítása és MÚSZ hivatalos ranglista szinkronizáció.
               </p>
-              <div
-                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
-              >
-                <span class="bg-slate-900 px-2 py-1 rounded">#PHP</span>
-                <span class="bg-slate-900 px-2 py-1 rounded">#MySQL</span>
-                <span class="bg-slate-900 px-2 py-1 rounded">#OAuth2</span>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400 pt-2">
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#PHP</span>
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#MySQL</span>
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#ChartJS</span>
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#GoogleOAuth2</span>
               </div>
             </div>
             <div class="pt-6">
               <a
-                href="https://ev-charge-tracker.free.je"
+                href="https://swimtracker.eu"
                 target="_blank"
-                class="block text-center bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2.5 rounded-lg transition text-sm"
-                >Try Free Version →</a
+                class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 rounded-xl transition text-sm shadow-md shadow-indigo-600/20"
               >
+                <span data-i18n="btn_swim">Indítás Google Fiókkal</span> <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <!-- EV Charge Tracker (Premium) -->
+          <!-- EV Charge Tracker -->
           <div
-            class="bg-slate-800/30 border border-slate-800 rounded-xl p-6 flex flex-col justify-between opacity-80 hover:opacity-100 transition"
+            class="group bg-slate-800/40 border border-slate-700/60 rounded-2xl p-6 flex flex-col justify-between hover:border-indigo-500/60 hover:bg-slate-800/60 transition duration-300 shadow-xl"
           >
             <div class="space-y-4">
               <div class="flex justify-between items-start">
-                <h3 class="text-xl font-bold text-white">
-                  EV Charge Tracker Pro
-                </h3>
+                <div class="flex items-center gap-3">
+                  <div class="bg-indigo-600/10 p-3 rounded-xl border border-indigo-500/20 text-indigo-400 group-hover:scale-110 transition">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold text-white group-hover:text-indigo-300 transition">EV Charge Tracker</h3>
+                    <p class="text-xs text-indigo-400 font-medium" data-i18n="ev_subtitle">Elektromos Autó & Töltéskezelő</p>
+                  </div>
+                </div>
                 <span
-                  class="px-2.5 py-1 text-xs font-semibold text-amber-400 bg-amber-950 border border-amber-800 rounded-full"
-                  >COMING SOON</span
+                  class="px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/80 rounded-full flex items-center gap-1 shadow-sm"
                 >
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> <span data-i18n="badge_live">ÉLŐ & INGYENES</span>
+                </span>
               </div>
-              <p class="text-slate-400 text-sm leading-relaxed">
-                Advanced analytics, automated cost reporting, multi-vehicle
-                management, and extended history logs for power EV owners.
+              <p class="text-slate-300 text-sm leading-relaxed" data-i18n="ev_desc">
+                Elektromos autók töltési munkameneteinek naplózása, akkumulátor State of Health (SOH) becslés, költségszámítás és Home Assistant integráció.
               </p>
-              <div
-                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
-              >
-                <span class="bg-slate-900 px-2 py-1 rounded">#Analytics</span>
-                <span class="bg-slate-900 px-2 py-1 rounded">#ProFeatures</span>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400 pt-2">
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#PHP</span>
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#MySQL</span>
+                <span class="bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md">#HomeAssistant</span>
               </div>
             </div>
             <div class="pt-6">
-              <button
-                disabled
-                class="w-full bg-slate-800 text-slate-500 font-medium py-2.5 rounded-lg cursor-not-allowed text-sm"
+              <a
+                href="https://evtracker.saasmicro-lab.eu"
+                target="_blank"
+                class="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 rounded-xl transition text-sm shadow-md shadow-indigo-600/20"
               >
-                In Development
-              </button>
+                <span data-i18n="btn_ev">Ingyenes Verzió</span> <i data-lucide="external-link" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <!-- Swimming Tracker -->
-          <div
-            class="bg-slate-800/30 border border-slate-800 rounded-xl p-6 flex flex-col justify-between md:col-span-2 opacity-80 hover:opacity-100 transition"
-          >
-            <div class="space-y-4">
-              <div class="flex justify-between items-start">
-                <h3 class="text-xl font-bold text-white">
-                  Swimming Performance Tracker
-                </h3>
-                <span
-                  class="px-2.5 py-1 text-xs font-semibold text-blue-400 bg-blue-950 border border-blue-800 rounded-full"
-                  >COMING SOON</span
-                >
-              </div>
-              <p class="text-slate-400 text-sm leading-relaxed">
-                A specialized data visualization tool designed to log, filter,
-                and analyze swimming race performance results by stroke,
-                distance, and historical trends.
-              </p>
-              <div
-                class="flex flex-wrap gap-2 text-xs font-mono text-slate-400"
-              >
-                <span class="bg-slate-900 px-2 py-1 rounded">#PHP</span>
-                <span class="bg-slate-900 px-2 py-1 rounded">#DataViz</span>
-                <span class="bg-slate-900 px-2 py-1 rounded">#Sports</span>
-              </div>
-            </div>
-            <div class="pt-4">
-              <span class="text-xs text-slate-500 font-mono"
-                >Status: Initial prototype in testing.</span
-              >
-            </div>
-          </div>
         </div>
       </section>
 
       <!-- About Section -->
       <section
         id="about"
-        class="bg-slate-950 border border-slate-800 rounded-2xl p-8 space-y-6"
+        class="bg-slate-950 border border-slate-800 rounded-3xl p-8 md:p-10 space-y-6 shadow-2xl relative overflow-hidden"
       >
-        <h2 class="text-2xl font-bold text-white">
-          From Enterprise Architecture to Precision Micro-SaaS
+        <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none text-indigo-500">
+          <i data-lucide="cpu" class="w-72 h-72"></i>
+        </div>
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="terminal" class="w-6 h-6 text-indigo-500"></i> <span data-i18n="about_heading">Vállalati Architektúrából a Precíz Micro-SaaS Világába</span>
         </h2>
         <div
-          class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base"
+          class="space-y-4 text-slate-300 leading-relaxed text-sm md:text-base max-w-3xl"
         >
-          <p>
-            After years of architecting and maintaining backend systems in
-            corporate environments, I founded <strong>SaaSMicro.lab</strong> to
-            build focused, goal-oriented web applications.
+          <p data-i18n="about_p1">
+            Többéves vállalati háttérrel és nagyméretű backend rendszerek tervezésében szerzett tapasztalattal alapítottam meg a <strong>SaaSMicro.lab</strong> márkát, hogy fókuszált, célzott webes alkalmazásokat hozzak létre.
           </p>
-          <p>
-            Enterprise software often suffers from feature bloat and unnecessary
-            overhead. My methodology combines battle-tested architecture
-            experience — specializing in
-            <strong>PHP, MySQL, MS SQL, C#</strong>, and modern APIs — with the
-            speed and simplicity of independent micro-SaaS engineering.
+          <p data-i18n="about_p2">
+            A nagyvállalati szoftverek gyakran túlbonyolítottak. Módszertarom ötvözi a stabil architektúra-ismeretet (PHP, MySQL, MS SQL, C#) a független micro-SaaS fejlesztés gyorsaságával és hatékonyságával.
           </p>
         </div>
         <div
-          class="pt-2 border-t border-slate-900 flex flex-wrap gap-4 text-xs font-mono text-slate-400"
+          class="pt-4 border-t border-slate-900 flex flex-wrap gap-3 text-xs font-mono text-slate-400 items-center"
         >
-          <span>Tech Stack Focus: PHP • MySQL • MS SQL • C# • REST APIs</span>
+          <span class="text-indigo-400 font-semibold" data-i18n="tech_focus">Fő Technológiai Fókusz:</span> 
+          <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">PHP</span>
+          <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">MySQL</span>
+          <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">MS SQL</span>
+          <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">WordPress</span>
+          <span class="bg-slate-900 px-2.5 py-1 rounded-md border border-slate-800">REST APIs</span>
+        </div>
+      </section>
+
+      <!-- Connect Section -->
+      <section id="connect" class="bg-gradient-to-br from-slate-950 to-indigo-950/30 border border-slate-800 rounded-3xl p-8 text-center space-y-6">
+        <div class="max-w-xl mx-auto space-y-3">
+          <div class="inline-flex p-3 bg-indigo-600/20 text-indigo-400 rounded-2xl border border-indigo-500/30">
+            <i data-lucide="share-2" class="w-6 h-6"></i>
+          </div>
+          <h2 class="text-2xl font-bold text-white" data-i18n="connect_heading">Kövessen a Facebookon & Építsünk Nyilvánosan</h2>
+          <p class="text-slate-400 text-sm" data-i18n="connect_desc">
+            Kövesse a SaaSMicro.lab útját a közösségi oldalon a frissítésekért, fejlesztési naplókért és az indie SaaS kulisszatitkaiért.
+          </p>
+          <div class="pt-2 flex justify-center gap-4">
+            <a href="https://www.facebook.com/profile.php?id=61594665894902" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm transition shadow-lg shadow-blue-600/20">
+              <i data-lucide="facebook" class="w-4 h-4"></i> <span data-i18n="btn_fb">Követés Facebookon</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Impressum / Legal Notice -->
+      <section
+        id="impressum"
+        class="bg-slate-950/60 border border-slate-800/80 rounded-3xl p-8 space-y-4 text-slate-400 text-sm"
+      >
+        <h2 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-5 h-5 text-indigo-500"></i> <span data-i18n="impressum_heading">Impresszum / Jogi Nyilatkozat</span>
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <div>
+            <p class="font-semibold text-slate-200" data-i18n="provider_title">Szolgáltató & Üzemeltető:</p>
+            <p class="mt-1">SaaSMicro.lab — Egyéni Vállalkozás</p>
+            <p class="text-xs text-slate-500 mt-1" data-i18n="provider_sub">Egyedi Webfejlesztés & Micro-SaaS Megoldások</p>
+          </div>
+          <div>
+            <div>
+              <p class="font-semibold text-slate-200" data-i18n="contact_title">Elérhetőség & Tárhely:</p>
+              <p class="mt-1">Email: <span id="protected-email"></span></p>
+              <p class="mt-1">Tárhelyszolgáltató: SiteGround Hosting Ltd.</p>
+              <p class="mt-1">Weboldal: <a href="https://www.siteground.com" target="_blank" rel="noopener" class="text-indigo-400 hover:underline">siteground.com</a></p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <!-- Footer -->
     <footer
-      class="border-t border-slate-800 py-6 text-center text-xs text-slate-500"
+      class="border-t border-slate-800 py-8 text-center text-xs text-slate-500 space-y-2 bg-slate-950"
     >
-      <p>&copy; SaaSMicro.lab — All rights reserved.</p>
+      <p>&copy; 2026 SaaSMicro.lab — <span data-i18n="footer_rights">Minden jog fenntartva.</span></p>
+      <p class="text-slate-600" data-i18n="footer_sub">Vállalati szintű logika, mikró agilitás.</p>
     </footer>
+
+    <!-- Scripts: Translations & Lucide Icons -->
+    <script>
+      // Translations Dictionary
+      const translations = {
+        hu: {
+          meta_title: "SaaSMicro.lab — Egyedi webalkalmazások & SaaS megoldások",
+          nav_services: "Szolgáltatások",
+          nav_products: "Termékek",
+          nav_about: "Rólam",
+          nav_connect: "Kapcsolat",
+          nav_impressum: "Impresszum",
+          hero_badge: "Egyéni Vállalkozó & Webfejlesztés",
+          hero_title: "Egyedi webalkalmazások és rendszerek fejlesztése",
+          hero_desc: "Webfejlesztőként és egyéni vállalkozóként vállalom egyedi webalkalmazások, belső nyilvántartó/kezelő rendszerek fejlesztését, valamint meglévő rendszerek technikai karbantartását és optimalizálását. Számlaképesen, megbízhatóan, rugalmas határidőkkel dolgozom. Keressen bizalommal, ha kódolási, fejlesztési vagy karbantartási feladatra keres partnert!",
+          btn_services: "Szakterületeim",
+          btn_products: "SaaS Termékek",
+          services_heading: "Főbb szakterületek és szolgáltatások",
+          services_subheading: "Modern technológiák és megbízható háttértámogatás vállalkozásoknak.",
+          card_backend_title: "Backend & API",
+          card_backend_desc: "PHP, REST API integrációk, OAuth 2.0 autentikáció, biztonságos adatkezelés és üzleti logika implementációja.",
+          card_db_title: "Adatbázisok",
+          card_db_desc: "MySQL, MS SQL: komplex lekérdezések írása, adatbázis-optimalizálás, adatmigráció és teljesítményhangolás.",
+          card_frontend_title: "Frontend & WordPress",
+          card_frontend_desc: "HTML5, CSS3, JavaScript, Bootstrap, jQuery, Chart.js, DataTables, valamint WordPress weboldalak készítése és egyedi fejlesztése.",
+          help_heading: "Miben tudok segíteni?",
+          help_item_1: "Egyedi webes alkalmazások és SaaS megoldások tervezése és fejlesztése.",
+          help_item_2: "Meglévő weboldalak és rendszerek karbantartása, hibajavítása és frissítése.",
+          help_item_3: "Harmadik féltől származó API-k (fizetési kapuk, számlázók, Google API-k) integrálása.",
+          help_item_4: "Adatbázis-lekérdezések gyorsítása, hibaelhárítás és egyedi riportok készítése.",
+          products_heading: "Saját Micro-SaaS Termékek",
+          products_subheading: "Aktív saját fejlesztésű webes alkalmazások és eszközök.",
+          products_count: "2 Élő Alkalmazás",
+          swim_subtitle: "Úszás Elemző & Teljesítménykövető",
+          badge_live: "ÉLŐ & INGYENES",
+          swim_desc: "Úszó fejlődésének és versenyeredményeinek nyomon követése. Részidők rögzítése, egyéni csúcsok, FINA pontok számítása és MÚSZ hivatalos ranglista szinkronizáció.",
+          btn_swim: "Indítás Google Fiókkal",
+          ev_subtitle: "Elektromos Autó & Töltéskezelő",
+          ev_desc: "Elektromos autók töltési munkameneteinek naplózása, akkumulátor State of Health (SOH) becslés, költségszámítás és Home Assistant integráció.",
+          btn_ev: "Ingyenes Verzió",
+          about_heading: "Vállalati Architektúrából a Precíz Micro-SaaS Világába",
+          about_p1: "Többéves vállalati háttérrel és nagyméretű backend rendszerek tervezésében szerzett tapasztalattal alapítottam meg a <strong>SaaSMicro.lab</strong> márkát, hogy fókuszált, célzott webes alkalmazásokat hozzak létre.",
+          about_p2: "A nagyvállalati szoftverek gyakran túlbonyolítottak. Módszertarom ötvözi a stabil architektúra-ismeretet (PHP, MySQL, MS SQL, C#) a független micro-SaaS fejlesztés gyorsaságával és hatékonyságával.",
+          tech_focus: "Fő Technológiai Fókusz:",
+          connect_heading: "Kövessen a Facebookon & Építsünk Nyilvánosan",
+          connect_desc: "Kövesse a SaaSMicro.lab útját a közösségi oldalon a frissítésekért, fejlesztési naplókért és az indie SaaS kulisszatitkaiért.",
+          btn_fb: "Követés Facebookon",
+          impressum_heading: "Impresszum / Jogi Nyilatkozat",
+          provider_title: "Szolgáltató & Üzemeltető:",
+          provider_sub: "Egyedi Webfejlesztés & Micro-SaaS Megoldások",
+          contact_title: "Elérhetőség & Tárhely:",
+          footer_rights: "Minden jog fenntartva.",
+          footer_sub: "Vállalati szintű logika, mikró agilitás."
+        },
+        en: {
+          meta_title: "SaaSMicro.lab — Specialized Web Apps & SaaS Solutions",
+          nav_services: "Services",
+          nav_products: "Products",
+          nav_about: "About",
+          nav_connect: "Connect",
+          nav_impressum: "Impressum",
+          hero_badge: "Solo Proprietor & Web Development",
+          hero_title: "Specialized Web Apps & Custom Systems Built for Specific Problems",
+          hero_desc: "As a web developer and solo proprietor, I specialize in building custom web applications, internal management systems, and maintaining or optimizing existing solutions. Reliable, invoice-compliant, and flexible delivery. Feel free to reach out if you are looking for a reliable partner for coding, development, or maintenance tasks!",
+          btn_services: "Core Expertise",
+          btn_products: "SaaS Products",
+          services_heading: "Core Expertise & Services",
+          services_subheading: "Modern technologies and dependable backend support for businesses.",
+          card_backend_title: "Backend & API",
+          card_backend_desc: "PHP, REST API integrations, OAuth 2.0 authentication, secure data handling, and business logic implementation.",
+          card_db_title: "Databases",
+          card_db_desc: "MySQL, MS SQL: complex queries, database optimization, data migration, and performance tuning.",
+          card_frontend_title: "Frontend & WordPress",
+          card_frontend_desc: "HTML5, CSS3, JavaScript, Bootstrap, jQuery, Chart.js, DataTables, alongside WordPress website creation and custom development.",
+          help_heading: "How Can I Help You?",
+          help_item_1: "Design and development of custom web applications and SaaS solutions.",
+          help_item_2: "Maintenance, bug fixing, and updates for existing websites and systems.",
+          help_item_3: "Integration of third-party APIs (payment gateways, invoicing systems, Google APIs).",
+          help_item_4: "Database query acceleration, troubleshooting, and custom report generation.",
+          products_heading: "Micro-SaaS Product Portfolio",
+          products_subheading: "Active independent web applications and tools.",
+          products_count: "2 Live Apps",
+          swim_subtitle: "Swimming Analytics & Performance Tracker",
+          badge_live: "LIVE & FREE",
+          swim_desc: "Track swimmer progress and competition results effortlessly. Log split times, calculate personal bests, visualize historical performance charts, track FINA points, and analyze official federation rankings.",
+          btn_swim: "Start Free with Google Account",
+          ev_subtitle: "Smart EV Energy & Battery Logger",
+          ev_desc: "A dedicated web app for tracking electric vehicle charging sessions, estimating battery State of Health (SOH), calculating home charging costs, and syncing data seamlessly with Home Assistant.",
+          btn_ev: "Try Free Version",
+          about_heading: "From Enterprise Architecture to Precision Micro-SaaS",
+          about_p1: "After years of architecting and maintaining backend systems in corporate environments, I founded <strong>SaaSMicro.lab</strong> to build focused, goal-oriented web applications.",
+          about_p2: "Enterprise software often suffers from feature bloat. My methodology combines battle-tested architecture experience (PHP, MySQL, MS SQL, C#) with the speed and agility of independent micro-SaaS engineering.",
+          tech_focus: "Tech Stack Focus:",
+          connect_heading: "Join the Community & Build in Public",
+          connect_desc: "Follow the journey of SaaSMicro.lab on social media for updates, development logs, and behind-the-scenes insights into indie SaaS development.",
+          btn_fb: "Follow on Facebook",
+          impressum_heading: "Impressum / Legal Notice",
+          provider_title: "Service Provider & Operator:",
+          provider_sub: "Independent Micro-SaaS Development",
+          contact_title: "Contact & Hosting:",
+          footer_rights: "All rights reserved.",
+          footer_sub: "Designed with enterprise logic and micro agility."
+        }
+      };
+
+      let currentLang = 'hu';
+
+      function toggleLanguage() {
+        currentLang = currentLang === 'hu' ? 'en' : 'hu';
+        document.documentElement.lang = currentLang;
+        
+        // Update Button Label
+        document.getElementById('langLabel').innerText = currentLang === 'hu' ? 'EN' : 'HU';
+
+        // Update all elements with data-i18n attribute
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[currentLang][key]) {
+            el.innerHTML = translations[currentLang][key];
+          }
+        });
+
+        // Update Title
+        const titleEl = document.querySelector('[data-i18n-title]');
+        if (titleEl && translations[currentLang]['meta_title']) {
+          document.title = translations[currentLang]['meta_title'];
+        }
+      }
+
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Protected email generator
+      document.addEventListener("DOMContentLoaded", function () {
+        const user = "saasmicro.lab";
+        const domain = "gmail.com";
+        const target = document.getElementById("protected-email");
+        if (target) {
+          target.innerHTML = `<a href="mailto:${user}@${domain}" class="text-indigo-400 hover:underline">${user}@${domain}</a>`;
+        }
+      });
+    </script>
   </body>
 </html>
